@@ -1,0 +1,49 @@
+<app-nav-bar></app-nav-bar>
+<div class="col-md-6 offset-md-3">
+    <h3></h3>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label >Patient Name</label>
+        <input type="text " class="form-control" id="firstname"
+         name="patientName" value={{patient.firtName}}{{patient.lastName}}>
+    </div>
+  
+    <div class="form-group">
+       <!-- <label >Receptionist Name</label>
+        <input type="text" class="form-control" id="lastname"
+        [(ngModel)] = "appointmentrecord.receptionistId" name="lastname">-->
+        <label>Receptionist Name</label>
+        <select class="form-control" name="receptionistId" id="appointmentrecord"
+                                [(ngModel)]="appointmentrecord.receptionistId">
+                                <option *ngFor="let ar of receptionist" value={{ar.receptionistId}} >{{ar.receptionistName}}</option>
+                                
+        </select>
+    </div>
+     
+
+    <div class="form-group">
+       <!-----<label >Doctor name</label>
+        <input type="text" class="form-control" id="appointmentrecord"
+        [(ngModel)] = "appointmentrecord.doctorId" name="doctorId">-->
+        <label >Doctor Name</label>
+        <select class="form-control" name="doctorId" id="appointmentrecord"
+                                [(ngModel)]="appointmentrecord.doctorId">
+                                <option *ngFor="let rr of doctor" value={{rr.doctorId}} >{{rr.doctorName}}</option>
+                                
+        </select>
+    </div>
+    <div class="form-group">
+        <label >Appointment Date</label>
+        <input type="date" class="form-control" id="appointmentrecord"
+        [(ngModel)] = "appointmentrecord.appointmentDate" name="appointmentDate">
+    </div>
+    <a (click)="reqForAppointment()" routerLinkActive="active" class="btn bt"  role="button" style="background-color: #ADF1E7; margin-bottom: 10px;" aria-pressed="true" style="color: black;">Book Appointment</a>
+    
+</form>
+<div>
+    
+    <button style="margin-top: 2%;" class="btn btn-success" type="submit" (click)="onSubmit()">
+        View Report
+    </button>
+</div>
+</div>

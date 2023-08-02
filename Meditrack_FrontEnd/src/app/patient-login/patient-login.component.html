@@ -1,0 +1,140 @@
+<!--<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id="login" style="margin-top: 0%;">
+    
+      <div class="container">
+          <div id="login-row" class="row justify-content-center align-items-center" >
+              <div id="login-column" class="col-md-6">
+                  <div id="login-box" class="col-md-12">
+                      <form #frm="ngForm" id="login-form" class="form" (ngSubmit)="onSubmit()">
+                       
+                          <h3 class="text-center text-info">Login</h3>
+                          <div class="form-group">
+                            <div class="row d-flex justify-content-center align-items-center mb-3" style="height:20px;">
+                              <div class="alert alert-danger h6" role="alert"  *ngIf="Uinvalid">
+                                  Invalid username or password
+                              </div>
+                          </div>
+                              <label for="username" class="text-info">Email Id:</label><br>
+                              <input type="email" name="username" id="emailP" class="form-control" [(ngModel)] = "patient.emailId" minlength="10" #email=ngModel required>
+                              <div class="alert alert-danger" *ngIf="email.touched && !email.valid" >
+                                <div *ngIf="email.errors?.required">Please enter Email</div>
+                                <div *ngIf="!email.errors?.valid">Please Enter valid Email</div>
+                              
+                            </div>
+                            </div>
+                          <div class="form-group">
+                              <label for="password" class="text-info">Password:</label><br>
+                              <input type="password" name="password" id="passwordP" class="form-control" [(ngModel)] = "patient.password" #pawd=ngModel  maxlength="10"
+                              minlength="4" required>
+                              <div class="alert alert-danger" *ngIf="pawd.touched && !pawd.valid" >
+                                <div *ngIf="pawd.errors?.required">Please enter Password</div>
+                                <div *ngIf="!pawd.errors?.valid">Please Enter valid Password</div>
+                          
+                            </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                              <input type="submit" [disabled]="frm.invalid" name="submit" class="btn btn-info btn-md" value="submit" >
+                          </div>
+                          <div id="register-link" class="text-right">
+                            <div style="font-size:85%">
+                              Don't have an account! 
+                              <a routerLink="/PRegistration" routerLinkActive="active" class="nav-link">Sign Up Here</a>
+                              <a routerLink="/PForgotPass" routerLinkActive="active" class="nav-link">ForGot Password?</a>
+                              <a routerLink="/PChangePass" routerLinkActive="active" class="nav-link">Change Password</a>
+                          
+                          </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>---->
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+  <div class="card card0 border-0">
+      <div class="row d-flex">
+          <div class="col-lg-6">
+              <div class="card1 pb-5">
+                  <div class="row">
+                    <!-- <h3 class="mt-2 ml-3"><b class="logo">Meditrack</b></h3> -->
+                     <img src="assets/Images/logo.png" class="logo">
+                   </div>
+                  <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> 
+                    <img src="assets/Images/medteam2.jpg" class="image"> 
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="card2 card border-0 px-4 py-5">
+                  
+                <form #frm="ngForm" id="login-form" class="form" (ngSubmit)="onSubmit()">
+
+                  <div class="row px-3 mb-4">
+                      <div class="line"></div>
+                       <h4 class="or text-center">Patient Login</h4>
+                      <div class="line"></div>
+                  </div>
+
+                  <div class="row px-3"> <label class="mb-1">
+                          <h6 class="mb-0 text-sm">Email Address</h6>
+                      </label> 
+                      <input class="form-control mb-4" type="text" name="email" placeholder="Enter a valid email address"
+                       [(ngModel)] = "patient.emailId" minlength="10" #email=ngModel required> 
+                      <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                        <div *ngIf="email.errors?.required" >Please enter Email</div>
+                        <div *ngIf="!email.errors?.valid" >Please Enter valid Email</div>
+                      </div>
+                  </div>
+                  
+                  <div class="row px-3"> <label class="mb-1">
+                          <h6 class="mb-0 text-sm">Password</h6>
+                      </label>
+                       <input class="form-control" type="password" name="password" id="password" placeholder="Enter password"
+                       [(ngModel)] = "patient.password" #pawd=ngModel  maxlength="10"
+                            minlength="4" required> 
+                       <div class="alert alert-danger" *ngIf="pawd.touched && !pawd.valid" >
+                        <div *ngIf="pawd.errors?.required">Please enter Password</div>
+                        <div *ngIf="!pawd.errors?.valid">Please Enter valid Password</div>
+                      </div>
+                  </div>
+                  
+                  <div class="row px-3 mb-4">
+                      <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Remember me</label> 
+                      </div> 
+                      <a routerLink="/PForgotPass" routerLinkActive="active" class="ml-auto mb-0 text-sm">Forgot Password?</a>
+                  </div>
+    
+                  <div class="row mb-3 px-3"> 
+                    <!-- <button type="submit" [disabled]="frm.invalid" name="submit" class="btn btn-blue text-center">Login</button>  -->
+                    <input type="submit" [disabled]="frm.invalid" name="submit" class="btn btn-blue text-center" value="submit" style="background-color: #1a237e;">
+                  </div>
+                  
+                  <div class="row mb-4 px-3"> 
+                    <small class="font-weight-bold">Don't have an account? 
+                    <!-- <a class="text-danger ">Register</a> -->
+                      <a routerLink="/PRegistration" routerLinkActive="active" class="nav-link text-danger">Register</a>
+                    </small>
+
+                  </div>
+                  <!-- <div> -->
+                    <a routerLink="/PChangePass" routerLinkActive="active" class="nav-link ml-auto mb-0 text-sm">Change Password</a> 
+                  <!-- </div> -->
+   
+                </form>                    
+
+              </div>
+          </div>
+      </div>
+      <div class="bg-blue py-4">
+          <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; Meditrack. All rights reserved.</small>
+              <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+          </div>
+      </div>
+  </div>
+</div>
+

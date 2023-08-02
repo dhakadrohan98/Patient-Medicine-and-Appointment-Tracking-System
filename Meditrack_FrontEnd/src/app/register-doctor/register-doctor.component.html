@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<title>Receptionist Registration Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    
+<div class="signup-form">
+    <form #frm="ngForm"  name="form" (ngSubmit)="onSubmit()">
+		<h2>Doctor Register</h2>
+        
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" id="doctorName"
+                [(ngModel)]= "doctor.doctorName" name="doctorName"
+                #name=ngModel 
+                required
+                pattern="[a-zA-Z ]*"
+                maxlength="20"
+                minlength="3">
+                <div class="alert alert-danger" *ngIf="name.touched && !name.valid" >
+                    <div *ngIf="name.errors?.required">Please enter Name</div>
+                    <div *ngIf="!name.errors?.valid">Please Enter valid Name</div>
+                </div>
+        </div> 
+      
+        <div class="form-group">
+            <label>Email Id</label>
+            <input type="text" class="form-control" id="emailId" 
+                [(ngModel)]= "doctor.emailId" name="emailId"
+                #mail = ngModel
+                required
+                pattern="^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$">
+                <div class="alert alert-danger" *ngIf="mail.touched && !mail.valid" >
+                    <div *ngIf="mail.errors?.required">Please enter Email</div>
+                    <div *ngIf="!mail.errors?.valid"> Please Enter valid Email</div>
+                </div>  
+        </div>
+    
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="password"
+                [(ngModel)]= "doctor.password" name="password" #pwd= ngModel
+                required minlength="4" maxlength="8">
+                <div class="alert alert-danger" *ngIf="(pwd.dirty || pwd.touched) && !pwd.valid" >
+                    <div *ngIf="pwd.errors?.required">Password is Required</div>
+                    <div *ngIf="!pwd.errors?.valid"> invalid Password it must be 4 to 8 characters</div>
+                </div>
+        </div>
+      
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Gender</label>
+            <span><input id="male" type="radio" value="male" name="gender" required [(ngModel)] = "doctor.gender" >
+            <label for="male" >Male</label>
+
+            <input id="female" type="radio" value="female" name="gender" required [(ngModel)] = "doctor.gender" 
+            style="margin-left: 15px;">
+            <label for="female" >Female</label></span>
+        </div>
+
+       
+        <div class="form-group">
+            <label>Education</label>
+            <input type="text" class="form-control" id="education"
+                [(ngModel)]= "doctor.education" name="education"
+                #edu = ngModel
+                required
+                pattern="[a-zA-Z ]*">
+                <div class="alert alert-danger" *ngIf="(edu.dirty || edu.touched) && !edu.valid" >
+                    <div *ngIf="edu.errors?.required">Please enter Education</div>
+                    <div *ngIf="!edu.errors?.valid"> Please enter valid education</div>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label>Specialization</label>
+            <input type="text" class="form-control" id="specialization"
+                 [(ngModel)]= "doctor.specialization" name="specialization"
+                #spec = ngModel
+                required
+                pattern="[a-zA-Z ]*"
+            >
+            <div class="alert alert-danger" *ngIf="(spec.dirty || spec.touched) && !spec.valid" >
+                <div *ngIf="spec.errors?.required">Please enter specialization</div>
+                <div *ngIf="!spec.errors?.valid"> Please enter valid specialization</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Working Days</label>
+            <input type="text" class="form-control" id="workingDays"
+                [(ngModel)]= "doctor.workingDays" name="workingDays"
+                #days = ngModel
+                required
+               
+                >
+                <div class="alert alert-danger" *ngIf="(days.dirty || days.touched) && !days.valid" >
+                    <div *ngIf="days.errors?.required">Please enter Working Days</div>
+                    <div *ngIf="!days.errors?.valid"> Please enter valid Working Days</div>
+                </div>   
+        </div>
+
+        <div class="d-flex">
+            <div><button class="btn btn-success" type="submit" [disabled]="frm.invalid">Register</button></div>
+            <div class="ml-5">
+                        <div>Already have an account! </div>
+                        <a routerLink="/#" routerLinkActive="active" class="nav-link ml-3">Sign In Here</a>
+            </div>
+        </div>
+    </form>
+	
+</div>
+</body>
+</html>

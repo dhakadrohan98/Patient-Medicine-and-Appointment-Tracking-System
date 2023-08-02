@@ -1,0 +1,121 @@
+
+
+  <html lang="en">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+</head>
+
+<app-nav-bar></app-nav-bar>
+<!-- End Header ---------------------------------------------------->
+
+
+
+
+
+<div class="container container-hover" >
+    <div class="row" >
+      <div style="display:flex; width:100%;justify-content: space-between;
+      padding: 12px; width: 100%; margin-top: 20px;" class="text-danger border">
+      <div>
+        <h2>Medical Report </h2>
+        </div>
+        <div><img [src]="retrievedImage" style="height: 80px;width: 80px;"></div>
+        </div>
+        <table class="table table-bordered success ">
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th><span>{{sessionStorage.getItem('pfname')}}
+                      {{sessionStorage.getItem('plname')}}</span></th>
+                </tr>
+                <tr>
+                    <th class="info">Clinic Name</th>
+                    <td>{{ medicalreport1.clinicName}}</td>
+                </tr>
+               
+                <tr>
+                    <th class="info">Disease</th>
+                    <td>{{ medicalreport1.disese }}</td>
+                </tr>
+                <tr>
+                    <th class="info">Doctor Name</th>
+                    <td>{{ medicalreport1.doctorName }}</td>
+                </tr>
+                <tr>
+                    <th class="info">Receptionist Name</th>
+                    <td>{{ medicalreport1.receptionistName }}</td>
+                </tr>
+                <tr>
+                    <th class="info">Tests</th>
+                    <td>{{ medicalreport1.tests }}</td>
+                </tr>
+
+                <tr>
+                    <th style="background-color:#AEB6BF;">Appointment Date</th>
+                    <td style="background-color:#AEB6BF;">{{ medicalreport1.nextAppoitnmentDt }}</td>
+                </tr>
+            
+                
+            </thead>
+
+        </table>
+    </div>
+    <a (click)="updateReport(medicalreport1.reportId)" routerLinkActive="active" class="nav-link" class="btn bt" style="background-color: #ADF1E7 ;" role="button" aria-pressed="true" style="color: black;">Update Report</a>
+</div>
+
+
+
+
+
+
+<div class="container container-hover" style="margin-top: 30px;">
+    <div class="row">
+        <h2 class="text-danger border" style="padding: 20px; width: 100%; margin-top: 20px;">Medicine Details</h2>
+
+
+<table class="table table-hover ">
+    <thead >
+      <tr style="background-color:#AEB6BF;">
+        
+        <th scope="col">Medicine Name</th>
+        <th scope="col">Daily Dose</th>
+        <th scope="col">From Date</th>
+        <th scope="col">Upto Date</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+        
+      </tr>
+
+     
+    </thead>
+    <tbody>
+      <tr *ngFor = "let p of pprescription">
+       
+        <td>{{ p.medicineName }}</td>
+        <td>{{ p.dailyDosage }}</td>
+        <td >{{ p.fromDate }}</td>
+        <td >{{ p.uptoDate }}</td>
+        <td>
+          <a (click) = "goToupdateMedicine(p.medicineId)" routerLinkActive="active" class="btn bt"  role="button" style="background-color: #ADF1E7 ;" aria-pressed="true" style="color: black;">Update</a>
+        </td>
+        <td>
+          
+          <a (click)="DMedicineRecord(p.medicineId)" routerLinkActive="active" class="nav-link" class="btn bt" style="background-color: #ADF1E7 ;" role="button" aria-pressed="true" style="color: black;">Delete</a>
+        </td>
+      </tr>
+ 
+    </tbody>
+  </table>
+
+
+    <div class="container my-3 bg-light ">
+        <div class="col-md-12 text-center">
+      
+            <a (click)="addMedicineDetails()" routerLinkActive="active" class="nav-link" style="margin: 30px;color: black;" class="btn bt btn-lg active" role="button" aria-pressed="true">Add Medicine</a>
+        </div>
+    </div>
+
+</div>
+</div>

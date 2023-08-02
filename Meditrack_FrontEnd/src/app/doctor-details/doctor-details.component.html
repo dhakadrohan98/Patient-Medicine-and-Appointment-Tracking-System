@@ -1,0 +1,34 @@
+
+<h1 style="background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); "
+    class="text-center"> Doctor Details</h1>
+<table class="table table-hover">
+    <thead>
+        <tr style="background-image:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);">
+            <th scope="col">DOCTOR NAME </th>
+            <th scope="col">EMAIL ADDRESS</th>
+            <th scope="col">EDUCATION</th>
+            <th scope="col">SPECIALIZATION</th>
+            <th scope="col">WORKING DAYS</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let doctor of doctor1">
+            <td>{{ doctor.doctorName }}</td>
+            <td>{{ doctor.emailId }}</td>
+            <td>{{ doctor.education }}</td>
+            <td>{{ doctor.specialization }}</td>
+            <td>{{ doctor.workingDays }}</td>
+            
+        </tr>
+
+
+
+
+    </tbody>
+</table>
+<div style="align-items: center;display: flex;justify-content: center;">
+    <a routerLink="/admin-home" routerLinkActive="active" class="nav-link"
+                                class="btn btn-primary btn-get-started animate_animated animate_fadeInUp scrollto">Home</a>
+</div>
