@@ -1,0 +1,142 @@
+<!--<div class="container login-container justify-content-center">
+    <div class="row">
+        <div class="col-md-6 login-form-1 d-flex justify-content-center" style="background-color: lightgreen;">
+            <img src="assets/Images/hi.jpg" alt="bg img" style="width:100%; ">
+
+        </div>
+        <div class="col-md-6 login-form-2">
+            <h3>Login Here!!!</h3>
+            <form #frm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <div class="row d-flex justify-content-center align-items-center mb-3" style="height:20px;">
+                        <div class="alert alert-danger h6" role="alert"  *ngIf="rinvalid">
+                            Invalid username or password
+                        </div>
+                    </div>
+                    <label> Email </label>
+                    <input type="text" class="form-control" id="emailAdress" placeholder="Email Address"
+                        [(ngModel)]="receptionist.emailAdress" name="emailAdress" #email=ngModel
+                        pattern="^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$" required>
+                    <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                        <div *ngIf="email.errors?.required">Please enter Name</div>
+                        <div *ngIf="!email.errors?.valid">Please Enter valid Email Address</div>
+        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label> Password</label>
+                    <input type="text" class="form-control" id="password" placeholder="Password" name="password"
+                        [(ngModel)]="receptionist.password" name="password" #pass=ngModel minlength="3" required
+                        maxlength="20">
+                    <div class="alert alert-danger" *ngIf="pass.touched && !pass.valid">
+                        <div *ngIf="pass.errors?.required">Please enter Password</div>
+                        <div *ngIf="!pass.errors?.valid">Please Enter valid Password</div>
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline-warning text-light" type="submit"
+                        [disabled]="frm.invalid">LOGIN</button>
+                </div>
+
+                <div>
+                    <a (click)="gotoForgotPassword()" style="color: aqua;"> Forgot Password?</a><br>
+                    <a (click)="gotoChangePassword()" style="color: aqua;"> Change Password?</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>--->
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <div class="row">
+                        <!-- <h3 class="mt-2 ml-3"><b class="logo">Meditrack</b></h3> -->
+                        <img src="assets/Images/logo.jpg" class="logo">
+                    </div>
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                        <img src="assets/Images/meadteam1.jpg" class="image">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card2 card border-0 px-4 py-5">
+
+                    <form #frm="ngForm" id="login-form" class="form" (ngSubmit)="onSubmit()">
+
+                        <div class="row px-3 mb-4">
+                            <div class="line"></div>
+                            <h4 class="text-center">Receptionist Login</h4>
+                            <div class="line"></div>
+                        </div>
+
+                        <div class="row px-3"> <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Email Address</h6>
+                            </label>
+                            <input class="form-control mb-4" type="text" id="emailAdress" placeholder="Email Address"
+                                [(ngModel)]="receptionist.emailAdress" name="emailAdress" #email=ngModel
+                                pattern="^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$" required>
+                            <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                                <div *ngIf="email.errors?.required">Please enter Name</div>
+                                <div *ngIf="!email.errors?.valid">Please Enter valid Email Address</div>
+                            </div>
+                        </div>
+
+                        <div class="row px-3"> <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Password</h6>
+                            </label>
+                            <input type="password" class="form-control" id="password" placeholder="Password"
+                                name="password" [(ngModel)]="receptionist.password" name="password" #pass=ngModel
+                                minlength="3" required maxlength="20">
+                            <div class="alert alert-danger" *ngIf="pass.touched && !pass.valid">
+                                <div *ngIf="pass.errors?.required">Please enter Password</div>
+                                <div *ngIf="!pass.errors?.valid">Please Enter valid Password</div>
+                            </div>
+                        </div>
+
+                        <div class="row px-3">
+                            <a routerLink="/ForgotRecept" routerLinkActive="active" class="ml-auto mb-0 text-sm">Forgot
+                                Password?</a>
+                        </div>
+
+                        <div class="row">
+                            <a routerLink="/ChangeReceptPass" routerLinkActive="active"
+                                class="nav-link ml-auto mb-0 text-sm">Change Password</a>
+                        </div>
+                        <div class="row mb-3 px-3">
+                            <!-- <button type="submit" [disabled]="frm.invalid" name="submit" class="btn btn-blue text-center">Login</button>  -->
+                            <div class="form-group">
+                                <button class="btn btn-blue text-center" type="submit" [disabled]="frm.invalid"
+                                    style="background-color: #1a237e;">LOGIN</button>
+                            </div>
+                            <!-- <input type="submit" [disabled]="frm.invalid" name="submit" class="btn btn-blue text-center" value="submit" style="background-color: #1a237e;">-->
+                        </div>
+
+                        <div class="row mb-4 px-3">
+                            <small class="font-weight-bold">Don't have an account?
+                                <!-- <a class="text-danger ">Register</a> -->
+                                <a routerLink="/register-receptionist" routerLinkActive="active"
+                                    class="nav-link text-danger">Register</a>
+                            </small>
+
+                        </div>
+                       </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="bg-blue py-4">
+            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; Meditrack. All rights
+                    reserved.</small>
+                <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span
+                        class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span>
+                    <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

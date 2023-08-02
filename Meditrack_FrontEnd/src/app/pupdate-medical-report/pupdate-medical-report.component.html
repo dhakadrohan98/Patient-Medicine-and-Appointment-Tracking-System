@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+
+</head>
+
+<body>
+<app-nav-bar></app-nav-bar>
+<div class="col-md-6 offset-md-3" style="border: 2px solid black;padding: 6px;border-radius: 4%;padding-left: 10px;padding-right: 10px;">
+    <h3>Update Medical Report</h3>
+   <form (ngSubmit)="onSubmit()">
+       
+        
+        <div class="form-group">
+            <label >Clinic Name</label>
+            <input type="text " class="form-control" id="lastname"
+            [(ngModel)] ="medicalreport3.clinicName" name="clinicName">
+        </div>
+        <div class="form-group">
+            <label >Doctor Name</label>
+           
+            <input type="text " class="form-control" id="emaild"
+            [(ngModel)] ="medicalreport3.doctorName" name="doctorName">
+        </div>
+        <div class="form-group">
+            <label >Disese</label>
+            <input type="text " class="form-control" id="emaild"
+            [(ngModel)] ="medicalreport3.disese" name="disese">
+        </div>
+        
+        <div class="form-group">
+            <label >Receptionist Name</label>
+          
+            <input type="text " class="form-control" id="emaild"
+            [(ngModel)] ="medicalreport3.receptionistName" name="receptionistName">
+        </div>
+       <div class="form-group">
+            <label >Test</label>
+                                <input type="text " class="form-control" id="emaild"
+            [(ngModel)] = "medicalreport3.tests" name="tests">
+            
+        </div>
+        <div class="form-group">
+            <label >Appointment date</label>
+            <input type="date" class="form-control" id="emaild"
+            [(ngModel)] = "medicalreport3.nextAppoitnmentDt" name="nextAppoitnmentDt">
+        </div>
+    
+        <button style="justify-content: center;" class="btn btn-success" type="submit" (click)="updateMedicalReport()">
+            Submit
+        </button>
+    </form>
+    </div>
+    </body>
+    </html>>
+
+    
+

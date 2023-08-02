@@ -1,0 +1,29 @@
+<app-nav-bar-recep></app-nav-bar-recep>
+<div class="col-md-6 offset-md-3">
+    <h3></h3>
+    <form>
+        <div class="form-group">
+            <label>Appointment Status</label>
+            <select class="form-control" name="appointmentStatus" id="appointmentrecord"
+                [(ngModel)]="appointmentrecord.appointmentStatus">
+                <option value="Confirmed">Confirmed</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Patient Name</label>
+            <input type="text" class="form-control" id="lastname" [(ngModel)]="appointmentrecord.patientName"
+                name="patientName">
+        </div>
+
+        <div class="form-group">
+            <label>Doctor Name</label>
+            <input type="text" class="form-control" id="emaild" [(ngModel)]="doctor.doctorName" name="doctorName"
+                readonly>
+        </div>
+        <a (click)="saveAppointmentDetails()" routerLinkActive="active" class="nav-link" style="margin: 30px;"
+            class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Send Mail</a>
+
+    </form>
+</div>

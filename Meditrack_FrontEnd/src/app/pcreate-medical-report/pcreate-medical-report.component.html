@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+
+</head>
+
+<body>
+<app-nav-bar></app-nav-bar>
+<div class="col-md-6 offset-md-3" style="border: 2px solid black;padding: 6px;border-radius: 4%;padding-left: 10px;padding-right: 10px;">
+    <h3>Create Medical Report</h3>
+   <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <div class="row">
+        <div class="col-md-4">
+            <input type="file" (change)="onFileChanged($event)">
+            
+        </div>
+        <div class="col-md-4">
+            <input type="button" (click)="onUpload()" value="upload">
+        </div>
+    </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <div *ngIf=message>{{message}}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label >Clinic Name</label>
+            <input type="text " class="form-control" id="lastname"
+            [(ngModel)] = "medicalreport2.clinicName" name="lastname">
+        </div>
+    
+        <div class="form-group">
+            <label >Disese</label>
+            <input type="text " class="form-control" id="emaild"
+            [(ngModel)] = "medicalreport2.disese" name="emaild">
+        </div>
+        <div class="form-group">
+            <label >Doctor Name</label>
+            <!--<input type="text " class="form-control" id="emaild"
+            [(ngModel)] = "medicalreport2.doctorName" name="emaild">-->
+                            <select class="form-control" name="doctorId" id="appointmentrecord"
+                                [(ngModel)]="medicalreport2.doctorName">
+                                <option *ngFor="let rr of doctor" value={{rr.doctorName}} >{{rr.doctorName}}</option>
+                                
+        </select>
+        </div>
+        <div class="form-group">
+            <label >Receptionist Name</label>
+            <!--<input type="text " class="form-control" id="emaild"
+            [(ngModel)] = "medicalreport2.receptionistName" name="emaild">-->
+           
+                            <select class="form-control" name="receptionistId" id="appointmentrecord"
+                            [(ngModel)]="medicalreport2.receptionistName">
+                            <option *ngFor="let ar of receptionist" value={{ar.receptionistName}} >{{ar.receptionistName}}</option>
+                            
+    </select>
+        </div>
+        <div class="form-group">
+            <label >Test</label>
+            
+                
+          <select class="form-control" name="tests" id="medicalreport2"
+                                [(ngModel)]="medicalreport2.tests">
+                                <option value="Kidney Function Test">Kidney Function Test</option>
+                                <option value="thorasentasis">thorasentasis</option>
+                                <option value="Urinalysis">Urinalysis</option>
+                                <option value="Autopsy">Autopsy</option>
+                                <option value="Laparoscopy">Laparoscopy</option>
+                                <option value="Molecular  Test">Molecular  Test</option>
+
+                            </select>
+            
+        </div>
+        <div class="form-group">
+            <label >Appointment date</label>
+            <input type="date" class="form-control" id="emaild"
+            [(ngModel)] = "medicalreport2.nextAppoitnmentDt" name="emaild">
+        </div>
+    
+        <button style="justify-content: center;" class="btn btn-success" type="submit">
+            Submit
+        </button>
+    </form>
+    </div>
+    </body>
+    </html>
+        <!---<html lang="en">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+ 
+<div class="container container-hover">
+   
+    <div class="row">
+        <h2 class="text-danger border" style="padding: 20px; width: 100%; margin-top: 20px;">Update Medical Report</h2>
+
+        <form (ngSubmit)="onSubmit()">
+        <table class="table table-bordered success ">
+            <thead>
+                
+                <tr>
+                    <th>Patient Name</th>
+                    <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                </tr>
+                <tr>
+                    <th class="info">Clinic Name</th>
+                    <th><input type="text" name="" class="form-control input_user" value="" placeholder="" [(ngModel)] = "medicalreport2.clinicName"></th>
+                </tr>
+                <tr>
+                    <th class="info">Disease</th>
+                    <th><input type="text" name="" class="form-control input_user" value="" placeholder="" [(ngModel)] = "medicalreport2.disese"></th>
+                </tr>
+                <tr>
+                    <th class="info">Doctor Name</th>
+                    <th><input type="text" name="" class="form-control input_user" value="" placeholder="" [(ngModel)] = "medicalreport2.doctorName"></th>
+                </tr>
+                <tr>
+                    <th class="info">Receptionist Name</th>
+                    <th><input type="text" name="" class="form-control input_user" value="" placeholder="" [(ngModel)] = "medicalreport2.receptionistName"></th>
+                </tr>
+                <tr>
+                    <th class="info">Tests</th>
+                    <th><input type="text" name="" class="form-control input_user" value="" placeholder="" [(ngModel)] = "medicalreport2.tests"></th>
+                </tr>
+
+                <tr>
+                    <th class="info bg-warning">Appointment Date</th>
+                    <td><input type="text" name="" class="form-control input_user; " value="" placeholder="" [(ngModel)] = "medicalreport2.nextAppoitnmentDt">
+                    </td>
+                </tr>
+
+                
+            </thead>
+
+        </table>
+    </form>
+    </div>
+    <div class="row">
+        <table>
+            <tr>
+                <td></td>
+                <td>
+                <a type="submit" class="btn btn-danger" target="_blank" href="#" style="margin: 5px; padding: 5px;">Add</a>
+                 </td>
+                 <td></td>
+            </tr>
+        </table>
+    </div>
+
+</div>--->
+
+
+
+
+
+
+
+<!---
+
+<div class="container container-hover" style="margin-top: 30px;">
+    <div class="row">
+        <h2 class="text-danger border" style="padding: 20px; width: 100%; margin-top: 30px;">Update Medicine Details</h2>
+
+
+
+        <div class="container container-hover" style="margin-top: 0px;"></div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Medicine Name</th>
+                            <th scope="col">Daily Dosage</th>
+                            <th scope="col">Upto Date</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                            <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                            <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                            <td>
+                                <a class="btn btn-primary" target="_blank" href="#" style="margin: 5px; padding: 5px;">Add</a>
+                                <a class="btn btn-success" target="_blank" href="#" style="margin: 10px; padding: 5px;">Update</a>
+                                <a class="btn btn-danger" target="_blank" href="#" style="margin: 5px; padding: 5px;">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                            <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                            <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                            <td>
+                                <a class="btn btn-primary" target="_blank" href="#" style="margin: 5px; padding: 5px;">Add</a>
+                                <a class="btn btn-success" target="_blank" href="#" style="margin: 10px; padding: 5px;">Update</a>
+                                <a class="btn btn-danger" target="_blank" href="#" style="margin: 5px; padding: 5px;">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                            <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                            <th><input type="text" name="" class="form-control input_user" value="" placeholder=""></th>
+                            <td>
+                                <a class="btn btn-primary" target="_blank" href="#" style="margin: 5px; padding: 5px;">Add</a>
+                                <a class="btn btn-success" target="_blank" href="#" style="margin: 10px; padding: 5px;">Update</a>
+                                <a class="btn btn-danger" target="_blank" href="#" style="margin: 5px; padding: 5px;">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+    -->

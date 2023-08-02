@@ -1,0 +1,94 @@
+<!--<h1>Employee List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Record Id</th>
+            <th> Receptionist Id</th>
+            <th> Patient Id</th>
+            <th> Appointment Date</th>
+            <th> Appoinment Status</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ad of appointmentdetails">
+            <td>{{ ad.recordId }}</td>
+            <td>{{ ad.receptionistId }}</td>
+            <td>{{ ad.patientId }}</td>
+            <td>{{ ad.appointmentDate}}</td>
+            <td>{{ ad.appointmentStatus }}</td>
+
+        </tr>
+    </tbody>
+</table>
+-->
+
+<!-- ======= Header ======= -->
+<app-nav-bar-recep></app-nav-bar-recep>
+<!-- End Header ---------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+<h1 style="background-color: rgb(41, 171, 214); margin-top: 20px; margin-bottom: 0px; padding: 30px; width: 100%; "
+    class="text-center"> Appoinment Details</h1>
+<table class="table table-hover">
+    <thead>
+        <tr style="background-color: coral;">
+
+            <th scope="col">RECORD ID </th>
+            <th scope="col">RECEPTIONIST Name </th>
+            <th scope="col">PATIENT NAME</th>
+            <th scope="col">APPOINTMENT DATE</th>
+            <th scope="col">STATUS</th>
+            <th scope="col column-span-2">EDIT</th>
+
+            <!-- <th scope="col">Doctor Name</th>
+            <th scope="col">Changes</th>-->
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <!--<tr *ngFor="let item of items"> 
+                <td> {{item.name}}</td> 
+                <td> {{item.subject}}</td> 
+                <td> <table> <tr> 
+                <td *ngFor="let list of details">{{list.firstName}} {{list.lastName}}</td> </tr> 
+            </table> </td> <td> {{item.fisrt}}</td> <td> {{item.second}}</td> </tr> -->
+
+
+
+
+
+
+        <tr *ngFor="let ad of appointmentdetails">
+            <td>{{ ad.recordId }}</td>
+            <td>{{ receptionist1.receptionistName }}</td>
+            <td>{{ ad.patientName }}</td>
+            <td>{{ ad.appointmentDate}}</td>
+            <td>{{ ad.appointmentStatus }}</td>
+            <td>
+                <button type="button" style="margin: 5px;" class="btn btn-outline-primary"
+                    (click)="gotoUpdateDetails(ad.recordId)">Edit</button>
+
+                <button type="button" style="margin: 5px;" (click)="deleteRecord(ad.recordId)"
+                    class="btn btn-outline-danger">Delete</button>
+            </td>
+        </tr>
+
+
+
+
+
+    </tbody>
+</table>

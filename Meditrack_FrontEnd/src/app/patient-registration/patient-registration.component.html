@@ -1,0 +1,322 @@
+<!---<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<body>
+<div  style="margin-top:30px">
+<div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title"><strong>Sign Up </strong></h3>
+      <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#"></a></div>
+  </div>
+  
+  <div class="panel-body">
+   <form role="form" (ngSubmit)="onSubmit()">
+  
+            <div class="row">
+    			<div class="col-xs-12 col-sm-4 col-md-4">
+					<div class="form-group">
+                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" tabindex="1"
+                        [(ngModel)] = "patient.firtName">
+					</div>
+				</div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+    				<div class="form-group">
+                        <input type="text" name="last_name" id="last_name" class="form-control " placeholder="Last Name" tabindex="1"
+                        [(ngModel)] = "patient.lastName">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<div class="form-group">
+                        <input type="number" name="age" id="age" class="form-control " placeholder="Age" tabindex="2"
+                        [(ngModel)] = "patient.age">
+					</div>
+				</div>
+            </div>
+            
+              <div class="form-group">
+                <input id="male" type="radio" value="male" name="gender"  [(ngModel)] = "patient.gender" >
+                <label for="male">Male</label>
+             </div>
+     
+             <div class="form-group">
+                <input id="female" type="radio" value="female" name="gender"  [(ngModel)] = "patient.gender" >
+                <label for="female">Female</label>
+             </div>
+             
+			<div class="form-group">
+                <input type="text" name="address" id="address" class="form-control " placeholder="Enter Address" tabindex="3"
+                [(ngModel)] = "patient.address">
+            </div>
+            
+			<div class="form-group">
+                <input type="email" name="email" id="email" class="form-control " placeholder="Email Address" tabindex="4"
+                [(ngModel)] = "patient.emailId">
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control " placeholder="Password" tabindex="5"
+                        [(ngModel)] = "patient.password">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control " placeholder="Confirm Password" tabindex="6">
+					</div>
+				</div>
+            </div>
+            <div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+                        <input type="number" name="contact_no" id="contact_no" class="form-control " placeholder="Mobile No" tabindex="7"
+                        [(ngModel)] = "patient.contactNo">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+                        <input type="text" name="AadharNo" id="AadharNo" class="form-control " placeholder="Aadhar No" tabindex="8"
+                        [(ngModel)] = "patient.aadharNo">
+					</div>
+				</div>
+			</div>
+                                    
+                                    <div class="input-group">
+                                      <div class="checkbox" style="margin-top: 0px;">
+                                        <label>
+                                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                                        </label>
+                                      </div>
+                                    </div>
+                                    
+  <button type="submit" class="btn btn-success">Sign Up</button>
+  
+  <hr style="margin-top:10px;margin-bottom:10px;" >
+  
+  <div class="form-group">
+                                    
+                                        <div style="font-size:85%">
+                                            Already have an account! 
+                                            <a routerLink="/PLogin" routerLinkActive="active" class="nav-link">Sign In Here</a>
+                                            
+                                        
+                                        </div>
+                                    
+                                </div> 
+</form>
+  </div>
+</div>
+</div>
+</div>
+</body>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Patient SignUp</h2>
+                </div>
+                <div class="card-body">
+                    <form #frm="ngForm" (ngSubmit)="onSubmit()">
+                        <div class="form-row m-b-55">
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="first_name" [(ngModel)] = "patient.firtName" #fname=ngModel pattern="[a-zA-Z ]*"
+                                            maxlength="10"
+                                            minlength="3" required>
+                                            <div class="alert alert-danger" *ngIf="fname.touched && !fname.valid" >
+                                                <div *ngIf="fname.errors?.required">Please enter Name</div>
+                                                <div *ngIf="!fname.errors?.valid">Please Enter valid Name</div>
+                                                 <!-- <div class="invalid-feedback" *ngIf="name.errors?.required">Name is Required</div>  -->
+                                            </div>
+                                            <label class="label--desc">first name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="last_name" [(ngModel)] = "patient.lastName" #lname=ngModel pattern="[a-zA-Z ]*"
+                                            maxlength="10"
+                                            minlength="3" required>
+                                            <div class="alert alert-danger" *ngIf="lname.touched && !lname.valid" >
+                                                <div *ngIf="lname.errors?.required">Please enter Name</div>
+                                                <div *ngIf="!lname.errors?.valid">Please Enter valid Name</div>
+                                                   -->
+                                            </div>
+                                            <label class="label--desc">last name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="company" [(ngModel)] = "patient.address" #address=ngModel
+                                    maxlength="30"
+                                    minlength="4" required>
+                                    <div class="alert alert-danger" *ngIf="address.touched && !address.valid" >
+                                        <div *ngIf="address.errors?.required">Please enter Name</div>
+                                        <div *ngIf="!address.errors?.valid">Please Enter valid Name</div>
+                                         <!-- <div class="invalid-feedback" *ngIf="name.errors?.required">Name is Required</div>  -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email" name="email" [(ngModel)] = "patient.emailId" #email=ngModel
+                                    minlength="10" required>
+                                    <div class="alert alert-danger" *ngIf="email.touched && !email.valid" >
+                                        <div *ngIf="email.errors?.required">Please enter Name</div>
+                                        <div *ngIf="!email.errors?.valid">Please Enter valid Name</div>
+                                         <!-- <div class="invalid-feedback" *ngIf="name.errors?.required">Name is Required</div>  -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">New Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input type="password" name="password" id="password" class="input--style-5" tabindex="5"
+                                    [(ngModel)] = "patient.password" #password=ngModel 
+                                    maxlength="10"
+                                    minlength="4" required>
+                                    <div class="alert alert-danger" *ngIf="password.touched && !password.valid" >
+                                        <div *ngIf="password.errors?.required">Please enter password</div>
+                                        <div *ngIf="!password.errors?.valid">password length should be between 4 to 10</div>
+                                         <!-- <div class="invalid-feedback" *ngIf="name.errors?.required">Name is Required</div>  -->
+                                    </div>
+                                    </div> 
+                               </div>  
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="name">Confirm Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input type="password" value="" class="input--style-5" 
+                                     maxlength="10"
+                                    minlength="4" id="confirmPass" required> 
+                                    
+                                    </div> 
+                               </div>  
+                        </div>
+
+
+
+
+                        <div class="form-row m-b-55">
+                            <div class="name">Mobile Number</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                   
+                                    <div class="col-7">
+                                        <div class="input-group-desc">
+                                            <input type="number" name="contactNo" id="contactNo" class="input--style-5"  
+                                            [(ngModel)] = "patient.contactNo" #mobileno=ngModel pattern="^[789]\d{9}$"
+                                            maxlength="10"
+                                            minlength="10" required>
+                                            <div class="alert alert-danger" *ngIf="mobileno.touched && !mobileno.valid" >
+                                                <div *ngIf="mobileno.errors?.required">Please enter Mobile No</div>
+                                                <div *ngIf="!mobileno.errors?.valid">Mobile number shoud be 10 digit</div>
+                                                 <!-- <div class="invalid-feedback" *ngIf="name.errors?.required">Name is Required</div>  -->
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="number" name="area_code" [(ngModel)] = "patient.age" #age=ngModel 
+                                            maxlength="3"
+                                            minlength="1" required>
+                                            <div class="alert alert-danger" *ngIf="mobileno.touched && !mobileno.valid" >
+                                                <div *ngIf="mobileno.errors?.required">Please enter Age</div>
+                                                <div *ngIf="!mobileno.errors?.valid">Please Enter valid Age</div>
+                                                 <!-- <div class="invalid-feedback" *ngIf="name.errors?.required">Name is Required</div>  -->
+                                            </div>
+                                            <label class="label--desc" style="color: black;">Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-row m-b-55">
+                            <div class="name">Aadhar No</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    
+                                    <div class="col">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="phone" [(ngModel)] = "patient.aadharNo" #aadharno=ngModel 
+                                            maxlength="20"
+                                            minlength="12" required>
+                                            <div class="alert alert-danger" *ngIf="aadharno.touched && !aadharno.valid" >
+                                                <div *ngIf="aadharno.errors?.required">Please enter AAdhar Number</div>
+                                                <div *ngIf="!aadharno.errors?.valid">AAdhar Number range Between 12 to 20</div>
+                                                 <!-- <div class="invalid-feedback" *ngIf="name.errors?.required">Name is Required</div>  -->
+                                            </div>
+                                            <label class="label--desc">Aadhar Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="p-t-10">
+                                <div><input id="male" type="radio" value="male" name="gender"  [(ngModel)] = "patient.gender" required>
+                                <label for="male">Male</label>
+                                <input id="female" type="radio" value="female" name="gender"  [(ngModel)] = "patient.gender" >
+                                <label for="female">Female</label></div>
+                            </div> 
+                        <div>
+                            <div class="btn ">
+                                <button class="btn btn--radius-2 btn--red" type="submit"
+                                    style="margin-right: 0px;" [disabled]="frm.invalid">Register</button>
+
+                                    
+                                        Already have an account! 
+                                        <a routerLink="/PLogin" routerLinkActive="active" class="nav-link">Sign In Here</a>
+                                        
+                                    
+                                    
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
